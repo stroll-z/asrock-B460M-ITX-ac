@@ -1,0 +1,10 @@
+Type:         iMac20,1
+Serial:       C02HC0S2PN5T
+Board Serial: C02209600CDPHC1CB
+SmUUID:       B25B20CA-1D4A-46E6-94CB-69BE48807BD6
+Apple ROM:    D81D72778385
+
+
+3& 19 前面板usb
+6 & 22 后 1右
+5 & 21 后1 左

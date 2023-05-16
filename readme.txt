@@ -1,0 +1,1 @@
+https://v1.efshop.cc/api/v1/client/subscribe?token=0a5252eadf6e653b3b7bda57a8baacf0
