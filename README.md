@@ -35,3 +35,28 @@ Not needed if VT-D is disabled in the BIOS ,准备在bios里打开vd-t
 ```
 如果独立显卡是rx5000 | rx6000系列， 启动参数要加上 agdpmod=pikera
 ```
+
+
+## 显卡风扇在低负载时, 不工作
+OC注入 PP_PhmSoftPowerPlayTable 
+
+### window上使用到工具
+ATOMBIOSReader / PolarisBiosEditor / HxD编辑器
+
+- 导出显卡vbios, 或者去techPowerup网去下载对应的vbios
+- 
+- 使用PolarisBiosEditor编辑fan相关, save as 为新rom
+- 
+- ATOMBIOSReader 打开显卡原vbios, 会在vbios对应目录下生产 xxx.txt文件
+- 
+- 使用 文件编辑器打开xxx.txt文件, 查找 PowerPlayInfo, 关键信息时 偏移地址和长度
+  例如: 我这里 偏移地址时9c54, 长度时306, 这里都是16进制
+000f:   9c54  Len 0306  Rev 07:01  (PowerPlayInfo)
+
+- 使用HxD编辑器打开新rom文件, 选取 9c54, 0306 之间的数据到文本编辑器, 去掉所有的空格, 数据制作完成
+
+### mac端
+- OpenCore Configurator挂载EFI
+- 创建 VGA (display control), 删除自带的条目, 新建 PP_PhmSoftPowerPlayTable 类型选择 Data 类最后的值就是在Windows下获取的保存的新建文本的值。
+
+- 
